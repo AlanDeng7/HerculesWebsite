@@ -1,0 +1,377 @@
+:root {
+  --primary-blue: #0a4d94;
+  --dark-black: #1a1a1a;
+  --clean-white: #ffffff;
+  --background-white: #F5F5F5;
+  --overlay: rgba(0, 20, 40, 0.7);
+  --base-line-height: 1.6;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  line-height: var(--base-line-height);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* Navbar ***********************************************************************************************************************************/
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 5vw; 
+  background: var(--clean-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 12.5vh;
+  min-height: 80px; 
+}
+
+
+.nav-zone {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+}
+
+.nav-zone.left {
+  justify-content: flex-start;
+  font-weight: bolder;
+}
+
+.nav-zone.center {
+  justify-content: center;
+}
+
+.nav-zone.right {
+  justify-content: flex-end;
+}
+
+.navbar a,.navbar a:visited,.navbar a:active {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 12.5vh;
+  width: auto;
+  display: block;
+}
+
+.logo {
+  font-size: 5vh; 
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+  font-size: 1.5rem;
+}
+
+.lang-btn {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--dark-black);
+  transition: all 0.3s ease;
+  position: relative; 
+  padding-bottom: 5px; 
+}
+
+.lang-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px; 
+  background-color: var(--primary-blue);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.lang-btn.active {
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+.lang-btn.active::after {
+  width: 100%; 
+}
+.lang-btn:hover::after {
+  width: 50%;
+}
+
+/* Hero Section ********************************************************************************************************************************/
+.hero {
+  background: linear-gradient(var(--overlay), var(--overlay)),
+    url(../resource/imgs/Background.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--clean-white);
+  height: 50vw;
+  margin-bottom: 7.5vw;
+}
+
+.hero-content h1 {
+  font-size: 6rem;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.button-style {
+  
+  display: inline-block;
+  padding: 12px 24px;
+  text-decoration: none; 
+  margin-top: 5rem;
+  
+
+  background-color: #007BFF;
+  color: var(--background-white);
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  
+  /* Border & Shape */
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  
+  /* Smooth Animation */
+  transition: background-color 0.6s ease, transform 0.2s ease;
+}
+
+.button-style:hover {
+  background-color: var(--background-white);
+  color: var(--primary-blue);
+}
+
+.button-style:active {
+  transform: scale(0.98); /* Slight shrink effect when pressed */
+}
+
+/* Service Section ************************************/
+.services-grid {
+  display: grid;
+  /* Forces 3 columns on desktop */
+  grid-template-columns: repeat(4, 1fr); 
+  background-color: (var(--background-white));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 5vw;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  background: var(--clean-white);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: 450px; 
+  
+  
+
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.service-card h3{
+  font-size: 1.5rem;
+  font-weight: Bold;
+}
+
+.service-card:hover {
+  transform: scale(1.03) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.service-card p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 77, 148, 0.95);
+  color: white; 
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: pre-line;
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover p {
+  opacity: 1;
+  visibility: visible;
+}
+
+.service-img-static {
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+/*Contact ***********************************************************************************************************************************/
+.contact-section {
+  padding: 5rem 5%;
+  background-color: #f4f7f6; /* Subtle light gray to separate from Services */
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info-panel h3 {
+  color: var(--dark-black);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  padding-bottom: .2rem;
+  font-weight: bolder;
+}
+
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.info-item p,
+.info-item a {
+  font-size: 1.1rem;
+  color: var(--dark-black);
+  text-decoration: none;
+}
+
+/* Form Panel Styling */
+.contact-form-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form-panel input,
+.contact-form-panel textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.contact-form-panel input:focus,
+.contact-form-panel textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+.contact-map-panel {
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Ensures the map corners stay rounded */
+  display: flex;
+}
+
+.contact-map-panel iframe {
+  flex-grow: 1;
+  min-height: 400px;
+}
+
+/* Ensure the wrapper handles the map height correctly on mobile */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Footer ***********************************************************************************************************************************/
+.footer {
+  background-color: var(--dark-black);
+  color: var(--clean-white);
+  padding: 4rem 5% 2rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+}
+
+.footer h3 {
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  line-height: 2;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-blue);
+}
+
+.service-image-container {
+  width: 100%;
+  height: var(--service-img-height); /* Uses the variable from :root */
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden; /* Clips the image to the border radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps image from stretching */
+  object-position: center;
+  transition: transform 0.5s ease;
+  display: block;
+}
