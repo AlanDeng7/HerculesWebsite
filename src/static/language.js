@@ -32,7 +32,7 @@ const translations = {
     hero_title: "鑽石不銹鋼廚具廠",
     hero_subtitle: "不锈钢制品及厨具制造",
     service1_title: "廚房水槽",
-    service1_desc:"訂製的高級不銹鋼水槽，設計精良，經久耐用，可完美融入商業廚房 \n\n單槽，雙槽",
+    service1_desc:"訂製的高級不銹鋼水槽，設計精良，經久耐用，可完美融入商業廚房 \n\n槽單，雙槽",
     service2_title: "工作台",
     service2_desc:"專為高客流量餐飲服務環境而設計的重型備餐檯面，可實現最大的穩定性和衛生性",
     service3_title: "貨架",
